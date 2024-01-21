@@ -58,12 +58,16 @@ class RestuarantByID(Resource):
     
 api.add_resource(RestuarantByID, '/restuarants/<int:restuarants_id>')
 
+
 class Pizzas(Resource):
     def get(self):
         pizzas = Pizza.query.all()
         
         return make_response(
-           [pizza.to_dict() for pizza in pizzas],
+           [pizza.to_dict(
+            
+            ) 
+            for pizza in pizzas],
            200
         )
         
