@@ -1,18 +1,17 @@
-import { Routes, Route} from 'react-router-dom';
-import { Box, Container } from '@chakra-ui/react';
-
-import { Navbar } from './components/Navbar';
-import { Home } from './pages/home';
+import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
+import './App.css'
 
 function App() {
-  
-
+ 
   return (
-    <main>
-      {/* Navbar */}
-      <Navbar />
-     
-    </main>
+    <>
+      <div>
+       <p>App</p>
+      </div>
+    
+    </>
   )
 }
 
