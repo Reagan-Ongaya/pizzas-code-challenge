@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function NewPizzaForm({ onAddPizza }) {
+function NewPizza({ onAddPizza }) {
   const [name, setName] = useState("");
   const [ingredients, setIngredient] = useState("");
   const [price, setPrice] = useState("");
@@ -54,4 +54,4 @@ function NewPizzaForm({ onAddPizza }) {
   );
 }
 
-export default NewPizzaForm;
+export default NewPizza;

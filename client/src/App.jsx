@@ -1,5 +1,6 @@
 import Header from "./components/Header.jsx";
-import Newpizza from "./components/Newpizza.jsx";
+import Newpizza from "./components/NewPizza.jsx";
+import PizzaPage from "./components/PizzaPage.jsx";
 import './App.css'
 
 function App() {
@@ -8,7 +9,8 @@ function App() {
     <>
       <div>
          <Header />
-         <Newpizza />
+           <Newpizza />
+         <PizzaPage />
       </div>
     
     </>
