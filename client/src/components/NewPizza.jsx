@@ -1,4 +1,7 @@
 import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input"
+import {Form} from "@/components/ui/form"
 
 function NewPizza({ onAddPizza }) {
   const [name, setName] = useState("");
@@ -24,23 +27,23 @@ function NewPizza({ onAddPizza }) {
 
   return (
     <div className="new-pizza-form">
-      <h2>Pizza</h2>
-      <form onSubmit={handleSubmit}>
-        <input
+      <h2 className='font-bold text-[25px] text-green-600'>Pizza</h2>
+      <Form onSubmit={handleSubmit} className="space-y-8 py-[5px ]">
+        <Input
           type="text"
           name="name"
           placeholder="Pizza name"
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
-        <input
+        <Input
           type="text"
           name="ingredients"
           placeholder="Ingredients"
           value={ingredients}
           onChange={(e) => setIngredient(e.target.value)}
         />
-        <input
+        <Input
           type="number"
           name="price"
           step="0.01"
@@ -48,8 +51,8 @@ function NewPizza({ onAddPizza }) {
           value={price}
           onChange={(e) => setPrice(parseFloat(e.target.value))}
         />
-        <button type="submit">Post Pizza</button>
-      </form>
+        <Button type="submit">Post </Button>
+      </Form>
     </div>
   );
 }
