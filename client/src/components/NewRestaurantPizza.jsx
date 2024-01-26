@@ -3,45 +3,45 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input"
 import {Form} from "@/components/ui/form"
 
-function NewPizza({ onAddPizza }) {
+function NewRestaurantPizza({ onAddRestaurantPizza }) {
   const [name, setName] = useState("");
-  const [ingredients, setIngredient] = useState("");
+  const [pizza, setPizza] = useState("");
   const [price, setPrice] = useState("");
 
   function handleSubmit(e) {
     e.preventDefault();
-    fetch("/pizzas", {
+    fetch("/restaurant_pizzas", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
         name: name,
-        ingredients: ingredients,
+        pizza: pizza,
         price: price,
       }),
     })
       .then((r) => r.json())
-      .then((newPizza) => onAddPizza(newPizza));
+      .then((newRestaurantPizza) => onAddRestaurantPizza(newRestaurantPizza));
   }
 
   return (
-    <div className="new-pizza-form">
-      <h2 className='font-bold text-[25px] text-green-600'>Pizza</h2>
-      <Form onSubmit={handleSubmit} className="space-y-8 py-[5px ]">
+    <div className="">
+      <h2 className='font-bold text-[25px] text-green-600'>RestaurantPizza</h2>
+      <Form onSubmit={handleSubmit} className="flex w-full max-w-sm items-center space-x-2">
         <Input
           type="text"
           name="name"
-          placeholder="Pizza name"
+          placeholder="RestaurantPizza name"
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
         <Input
           type="text"
-          name="ingredients"
-          placeholder="Ingredients"
-          value={ingredients}
-          onChange={(e) => setIngredient(e.target.value)}
+          name="pizza"
+          placeholder="pizza"
+          value={pizza}
+          onChange={(e) => setPizza(e.target.value)}
         />
         <Input
           type="number"
@@ -57,4 +57,4 @@ function NewPizza({ onAddPizza }) {
   );
 }
 
-export default NewPizza;
+export default NewRestaurantPizza;

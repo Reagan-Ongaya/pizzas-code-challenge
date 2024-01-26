@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import NewPizza from "./NewPizza.jsx"; 
+import NewPizza from "./NewRestaurantPizza.jsx"; 
 import PizzaList from "./PizzaList.jsx";
 import Search from "./Search.jsx";
 
