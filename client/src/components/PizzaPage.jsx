@@ -4,45 +4,45 @@ import PizzaList from "./PizzaList.jsx";
 import Search from "./Search.jsx";
 
 function PizzaPage() {
-  const [pizzas, setPizzas] = useState([]);
+  const [restaurantpizzas, setRestaurantPizzas] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     // no need to use http://localhost:5555 here
-    fetch("/pizzas")
+    fetch("/restaurant_pizzas")
       .then((r) => r.json())
-      .then((pizzasArray) => {
-        setPizzas(pizzasArray);
+      .then((restaurantpizzasArray) => {
+        setRestaurantPizzas(restaurantpizzasArray);
       });
   }, []);
 
-  const handleAddPizza = (newPizza) => {
-    const updatedPizzasArray = [...pizzas, newPizza];
-    setPizzas(updatedPizzasArray);
+  const handleAddRestaurantPizza = (newRestaurantPizza) => {
+    const updatedRestaurantPizzasArray = [...restaurantpizzas, newRestaurantPizza];
+    setRestaurantPizzas(updatedRestaurantPizzasArray);
   }
 
-  const handleUpdatePizza = (updatedPizza) => {
-    const updatedPizzasArray = pizzas.map(pizza => {
-      if (pizza.id === updatedPizza.id) return updatedPizza
-      else return pizza;  
+  const handleUpdateRestaurantPizza = (updatedRestaurantPizza) => {
+    const updatedRestaurantPizzasArray = restaurantpizzas.map(restaurantpizza => {
+      if (restaurantpizza.id === updatedRestaurantPizza.id) return updatedRestaurantPizza
+      else return restaurantpizza;  
     });
-    setPizzas(updatedPizzasArray);
+    setRestaurantPizzas(updatedRestaurantPizzasArray);
   }
 
-  const handleDeletePizza = (id) => {
-    const updatedPizzasArray = pizzas.filter((pizza) => pizza.id !== id);
-    setPizzas(updatedPizzasArray);
+  const handleDeleteRestaurantPizza = (id) => {
+    const updatedRestaurantPizzasArray = restaurantpizzas.filter((restaurantpizza) => restaurantpizza.id !== id);
+    setRestaurantPizzas(updatedRestaurantPizzasArray);
   }
 
-  const displayedPizzas = pizzas.filter((pizza) => {
-    return pizza.name.toLowerCase().includes(searchTerm.toLowerCase());
+  const displayedRestaurantPizzas = restaurantpizzas.filter((restaurantpizza) => {
+    return restaurantpizza.name.toLowerCase().includes(searchTerm.toLowerCase());
   });
 
   return (
     <main>
-      <NewPizza onAddPizza={handleAddPizza} />
+      <NewPizza onAddRestaurantPizza={handleAddRestaurantPizza} />
       <Search searchTerm={searchTerm} onSearchChange={setSearchTerm} />
-      <PizzaList pizzas={displayedPizzas} handleUpdatePizza={handleUpdatePizza} handleDeletePizza={handleDeletePizza}/>
+      <PizzaList pizzas={displayedRestaurantPizzas} handleUpdateRestaurantPizza={handleUpdateRestaurantPizza} handleDeleteRestaurantPizza={handleDeleteRestaurantPizza}/>
     </main>
   );
 }
